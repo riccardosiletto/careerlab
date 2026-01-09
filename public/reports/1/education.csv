@@ -1,0 +1,19 @@
+category,name,count,percentage
+degree,Ingegneria Gestionale,131,42
+degree,Economia,87,28
+degree,Informatica,59,19
+degree,Scienze della Comunicazione,25,8
+degree,Psicologia,10,3
+course,Project Management,156,50
+course,Data Analysis,98,31
+course,Marketing,67,21
+course,Accounting,41,13
+course,Leadership,28,9
+schoolType,Università Pubblica,212,68
+schoolType,Università Privata,69,22
+schoolType,Online,22,7
+schoolType,Estero,9,3
+mbaType,Full-Time,45,58
+mbaType,Part-Time,23,29
+mbaType,Executive,7,9
+mbaType,Online,3,4

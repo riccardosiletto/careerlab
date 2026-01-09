@@ -2,32 +2,140 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Aeonik Pro Font */
+@font-face {
+  font-family: "Aeonik Pro";
+  src: url("/fonts/AeonikProTRIAL-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "Aeonik Pro";
+  src: url("/fonts/AeonikProTRIAL-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik Pro";
+  src: url("/fonts/AeonikProTRIAL-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik Pro";
+  src: url("/fonts/AeonikPro-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-aeonik: "Aeonik Pro", system-ui, sans-serif;
+  --career-dark: #212746;
+  --career-blue-500: #6D7BFC;
+  --career-blue-400: #9FA9FF;
+  --career-blue-200: #DCDFFF;
+  --career-blue-100: #F3F4FF;
+  --career-green-500: #D0E957;
+  --career-green-200: #EBFF8C;
+  --career-grey-500: #8D96AC;
+  --career-grey-300: #C1C8D5;
+  --career-dark-grey: #5A607F;
+  --career-light-bg: #f0f3ff;
+  --career-light-100: #f6f8ff;
+
+  /* Chart colors for shadcn */
+  --chart-1: #6D7BFC;
+  --chart-2: #B6DC00;
+  --chart-3: #9D52FF;
+  --chart-4: #FEC800;
+  --chart-5: #8D96AC;
+
+  /* shadcn/ui variables */
+  --foreground: #212746;
+  --muted-foreground: #8D96AC;
+}
+
+html {
+  font-family: var(--font-aeonik);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--career-blue-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--career-blue-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--career-blue-500);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
   }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Slide animations for results flow */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out forwards;
 }

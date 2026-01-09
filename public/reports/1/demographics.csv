@@ -1,0 +1,33 @@
+metric,value,additional
+averageAge,27,
+ageDistribution,18-24,45
+ageDistribution,25-29,120
+ageDistribution,30-34,98
+ageDistribution,35-39,35
+ageDistribution,40+,14
+gender,Male,188
+gender,Female,119
+gender,Other,5
+genderTrend,2022-Male,62
+genderTrend,2022-Female,35
+genderTrend,2022-Other,2
+genderTrend,2023-Male,60
+genderTrend,2023-Female,39
+genderTrend,2023-Other,1
+genderTrend,2024-Male,58
+genderTrend,2024-Female,40
+genderTrend,2024-Other,2
+educationLocation,Milano,98
+educationLocation,Roma,67
+educationLocation,Torino,42
+educationLocation,Bologna,35
+educationLocation,Firenze,28
+educationLocation,Other Italy,52
+nationality,Italian,245
+nationality,Foreign EU,45
+nationality,Foreign non-EU,22
+educationLevel,scuolaSuperiore,28
+educationLevel,laureaTriennale,89
+educationLevel,laureaMagistrale,142
+educationLevel,master,45
+educationLevel,altro,8
