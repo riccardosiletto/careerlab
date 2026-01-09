@@ -65,7 +65,7 @@ export default function EducationLocationChart({ data }: EducationLocationChartP
               <LabelList
                 dataKey="percentage"
                 position="right"
-                formatter={(value: number) => `${value}%`}
+                formatter={(value) => `${value}%`}
                 style={{
                   fill: '#212746',
                   fontSize: 14,

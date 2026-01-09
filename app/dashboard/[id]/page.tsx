@@ -102,7 +102,6 @@ export default function DynamicDashboardPage() {
             dataQuality={data.metadata.dataQuality}
             role={data.metadata.role}
             roleDescription={data.metadata.roleDescription}
-            educationLevel={data.demographics.educationLevel}
           />
 
           {/* Content Area with Sections */}

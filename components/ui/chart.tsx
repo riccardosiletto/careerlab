@@ -63,6 +63,13 @@ const ChartTooltipContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
     React.ComponentProps<"div"> & {
+      active?: boolean
+      payload?: Array<{ dataKey?: string; name?: string; value?: unknown; color?: string; payload?: Record<string, unknown> }>
+      label?: React.ReactNode
+      labelFormatter?: (label: unknown, payload: unknown[]) => React.ReactNode
+      labelClassName?: string
+      formatter?: (value: unknown, name: unknown, item: unknown, index: number, payload: unknown) => React.ReactNode
+      color?: string
       hideLabel?: boolean
       hideIndicator?: boolean
       indicator?: "line" | "dot" | "dashed"
@@ -140,7 +147,7 @@ const ChartTooltipContent = React.forwardRef<
           {payload.map((item, index) => {
             const key = `${nameKey || item.name || item.dataKey || "value"}`
             const itemConfig = config[key as keyof typeof config]
-            const indicatorColor = color || item.payload.fill || item.color
+            const indicatorColor = (color || item.payload?.fill || item.color) as string | undefined
 
             return (
               <div
@@ -163,8 +170,8 @@ const ChartTooltipContent = React.forwardRef<
                   </div>
                   <span className="font-mono font-medium tabular-nums text-[#212746]">
                     {formatter
-                      ? formatter(item.value, item.name, item, index, item.payload)
-                      : item.value}
+                      ? (formatter(item.value, item.name, item, index, item.payload) as React.ReactNode)
+                      : String(item.value)}
                   </span>
                 </div>
               </div>

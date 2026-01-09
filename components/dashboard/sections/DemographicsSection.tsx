@@ -27,9 +27,11 @@ export default function DemographicsSection({ demographics }: DemographicsSectio
             distribution={demographics.ageDistribution}
           />
         </div>
-        <div id="education-level">
-          <EducationLevelChart data={demographics.educationLevel} />
-        </div>
+        {demographics.educationLevel && (
+          <div id="education-level">
+            <EducationLevelChart data={demographics.educationLevel} />
+          </div>
+        )}
       </div>
 
       {/* Gender Charts - Side by Side */}

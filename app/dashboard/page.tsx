@@ -61,11 +61,12 @@ export default function DashboardPage() {
           <NavigationTabs activeTab="panoramica" />
           
           {/* Info Cards Row */}
-          <InfoCards 
+          <InfoCards
             company={dashboardData.company}
             profilesAnalyzed={dashboardData.profilesAnalyzed}
             dataQuality={dashboardData.dataQuality}
             role={dashboardData.role}
+            roleDescription={dashboardData.roleDescription}
           />
           
           {/* Stats Section */}
