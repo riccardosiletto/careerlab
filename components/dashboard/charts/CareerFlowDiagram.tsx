@@ -288,7 +288,7 @@ export default function CareerFlowDiagram({
                       {/* Nome del ruolo */}
                       <text
                         x="110"
-                        y="38"
+                        y="28"
                         textAnchor="middle"
                         fill="#212746"
                         fontSize="12"
@@ -300,7 +300,7 @@ export default function CareerFlowDiagram({
                       {/* Percentuale grande */}
                       <text
                         x="110"
-                        y="65"
+                        y="55"
                         textAnchor="middle"
                         fill={color.text}
                         fontSize="24"
@@ -312,7 +312,7 @@ export default function CareerFlowDiagram({
                       {/* Count profili */}
                       <text
                         x="110"
-                        y="80"
+                        y="75"
                         textAnchor="middle"
                         fill="#5A607F"
                         fontSize="10"
