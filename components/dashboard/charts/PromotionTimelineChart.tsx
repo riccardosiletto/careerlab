@@ -96,7 +96,7 @@ export default function PromotionTimelineChart({ data }: PromotionTimelineChartP
                   dataKey="percentage"
                   position="top"
                   offset={4}
-                  formatter={(value: number) => `${value}%`}
+                  formatter={(value) => `${value}%`}
                   style={{
                     fill: '#212746',
                     fontSize: 20,
