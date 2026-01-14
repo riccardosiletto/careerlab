@@ -15,13 +15,20 @@ interface CareerFlowDiagramProps {
     sameRole: number;
     differentRole: number;
   };
+  differentRoles?: Array<{
+    name: string;
+    count: number;
+    percentage: number;
+  }>;
 }
 
 export default function CareerFlowDiagram({
   data,
   promotionLocation,
-  promotionType
+  promotionType,
+  differentRoles
 }: CareerFlowDiagramProps) {
+
   const total =
     data.sameCompanySameRole +
     data.sameCompanyDiffRole +
@@ -40,8 +47,11 @@ export default function CareerFlowDiagram({
     newCompanyDiffRole: Math.round((data.newCompanyDiffRole / total) * 100),
   };
 
+  // Prepara i top ruoli per la visualizzazione (massimo 3)
+  const topRoles = (differentRoles || []).slice(0, 3);
+
   return (
-    <div className="bg-white shadow-sm border border-gray-200 overflow-hidden">
+    <div className="bg-white shadow-sm border border-gray-200 overflow-visible relative">
       {/* Dark blue header */}
       <div className="bg-[#212746] flex items-center px-5 py-4 w-full rounded-none">
         <h3 className="font-medium text-[19px] text-white">
@@ -53,7 +63,7 @@ export default function CareerFlowDiagram({
         {/* Flow Diagram */}
         <div className="relative" style={{ height: '420px' }}>
           <svg
-            viewBox="0 0 900 400"
+            viewBox="0 0 1120 400"
             className="w-full h-full"
             preserveAspectRatio="xMidYMid meet"
           >
@@ -115,7 +125,7 @@ export default function CareerFlowDiagram({
               </text>
             </g>
 
-            {/* Stessa Azienda - Ruolo Diverso (blu più chiaro) */}
+            {/* Stessa Azienda - Ruolo Diverso */}
             <g transform="translate(600, 105)">
               <rect x="0" y="0" width="160" height="85" rx="0" fill="#F3F4FF" stroke="#9FA9FF" strokeWidth="2" />
               <text x="80" y="24" textAnchor="middle" fill="#212746" fontSize="11" fontWeight="600">
@@ -143,7 +153,7 @@ export default function CareerFlowDiagram({
               </text>
             </g>
 
-            {/* Nuova Azienda - Ruolo Diverso (verde chiaro) */}
+            {/* Nuova Azienda - Ruolo Diverso */}
             <g transform="translate(600, 305)">
               <rect x="0" y="0" width="160" height="85" rx="0" fill="#F1FDD1" stroke="#D0E957" strokeWidth="2" />
               <text x="80" y="24" textAnchor="middle" fill="#212746" fontSize="11" fontWeight="600">
@@ -215,51 +225,107 @@ export default function CareerFlowDiagram({
               strokeOpacity="0.5"
             />
 
-            {/* Column Labels */}
-            <text x="80" y="30" textAnchor="middle" fill="#8D96AC" fontSize="11" fontWeight="500">
-              PARTENZA
-            </text>
-            <text x="350" y="30" textAnchor="middle" fill="#8D96AC" fontSize="11" fontWeight="500">
-              DOVE
-            </text>
-            <text x="680" y="30" textAnchor="middle" fill="#8D96AC" fontSize="11" fontWeight="500">
-              COME
-            </text>
+            {/* TOP RUOLI - Visualizzazione sempre visibile a destra dei box "Ruolo diverso" */}
+            {topRoles.length > 0 && (
+              <>
+                {/* Flow paths da Ruolo diverso (stessa azienda) ai top ruoli */}
+                {topRoles.map((role, index) => {
+                  const yOffset = 105 + 42.5; // Centro del box "Ruolo diverso" stessa azienda
+                  const targetY = 55 + (index * 120); // Posizione Y del box ruolo target
+                  return (
+                    <path
+                      key={`path-same-${index}`}
+                      d={`M 760 ${yOffset} C 800 ${yOffset}, 830 ${targetY + 35}, 850 ${targetY + 35}`}
+                      fill="none"
+                      stroke="#9FA9FF"
+                      strokeWidth={Math.max(2, (role.percentage / 100) * 8)}
+                      strokeOpacity="0.4"
+                    />
+                  );
+                })}
 
-            {/* Grouping brackets for third column */}
-            {/* Blue bracket for Stessa Azienda outcomes */}
-            <path
-              d="M 770 10 L 780 10 L 780 190 L 770 190"
-              fill="none"
-              stroke="#6D7BFC"
-              strokeWidth="2"
-              strokeOpacity="0.4"
-            />
-            <text x="795" y="105" fill="#6D7BFC" fontSize="10" fontWeight="600" opacity="0.7">
-              Stessa
-            </text>
-            <text x="795" y="118" fill="#6D7BFC" fontSize="10" fontWeight="600" opacity="0.7">
-              azienda
-            </text>
+                {/* Flow paths da Ruolo diverso (nuova azienda) ai top ruoli */}
+                {topRoles.map((role, index) => {
+                  const yOffset = 305 + 42.5; // Centro del box "Ruolo diverso" nuova azienda
+                  const targetY = 55 + (index * 120); // Posizione Y del box ruolo target
+                  return (
+                    <path
+                      key={`path-new-${index}`}
+                      d={`M 760 ${yOffset} C 800 ${yOffset}, 830 ${targetY + 35}, 850 ${targetY + 35}`}
+                      fill="none"
+                      stroke="#D0E957"
+                      strokeWidth={Math.max(2, (role.percentage / 100) * 8)}
+                      strokeOpacity="0.4"
+                    />
+                  );
+                })}
 
-            {/* Green bracket for Nuova Azienda outcomes */}
-            <path
-              d="M 770 210 L 780 210 L 780 390 L 770 390"
-              fill="none"
-              stroke="#B6DC00"
-              strokeWidth="2"
-              strokeOpacity="0.4"
-            />
-            <text x="795" y="305" fill="#B6DC00" fontSize="10" fontWeight="600" opacity="0.7">
-              Nuova
-            </text>
-            <text x="795" y="318" fill="#B6DC00" fontSize="10" fontWeight="600" opacity="0.7">
-              azienda
-            </text>
+                {/* Box dei top ruoli - Design migliorato */}
+                {topRoles.map((role, index) => {
+                  const yPos = 55 + (index * 120);
+                  // Colori in scala per i 3 ruoli
+                  const colors = [
+                    { bg: '#F3E8FF', border: '#9D52FF', text: '#9D52FF' }, // Viola - primo
+                    { bg: '#F3F4FF', border: '#6D7BFC', text: '#6D7BFC' }, // Blu - secondo
+                    { bg: '#F6F8FF', border: '#9FA9FF', text: '#9FA9FF' }, // Blu chiaro - terzo
+                  ];
+                  const color = colors[index] || colors[2];
+
+                  return (
+                    <g key={`role-${index}`} transform={`translate(850, ${yPos})`}>
+                      {/* Box principale con sfondo colorato */}
+                      <rect
+                        x="0"
+                        y="0"
+                        width="220"
+                        height="85"
+                        rx="0"
+                        fill={color.bg}
+                        stroke={color.border}
+                        strokeWidth="2"
+                      />
+
+                      {/* Nome del ruolo */}
+                      <text
+                        x="110"
+                        y="38"
+                        textAnchor="middle"
+                        fill="#212746"
+                        fontSize="12"
+                        fontWeight="600"
+                      >
+                        {role.name.length > 20 ? role.name.substring(0, 20) + '...' : role.name}
+                      </text>
+
+                      {/* Percentuale grande */}
+                      <text
+                        x="110"
+                        y="65"
+                        textAnchor="middle"
+                        fill={color.text}
+                        fontSize="24"
+                        fontWeight="800"
+                      >
+                        {role.percentage}%
+                      </text>
+
+                      {/* Count profili */}
+                      <text
+                        x="110"
+                        y="80"
+                        textAnchor="middle"
+                        fill="#5A607F"
+                        fontSize="10"
+                      >
+                        {role.count} profili
+                      </text>
+                    </g>
+                  );
+                })}
+              </>
+            )}
           </svg>
         </div>
-
-
       </div>
     </div>
   );

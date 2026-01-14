@@ -1,0 +1,16 @@
+category,name,count,percentage
+top_skills,Research,9,47.4
+top_skills,Molecular Biology,9,47.4
+top_skills,Python,8,42.1
+top_skills,Data Analytics,8,42.1
+top_skills,Biochemistry,8,42.1
+top_certifications,Unknown,3,27.3
+top_certifications,DELF B1,1,9.1
+top_certifications,Biopharmaceutical Manufacturing Principles,1,9.1
+top_certifications,FELASA B (Federation for Laboratory Animal Science Associations),1,9.1
+top_certifications,Introduction to Python for Data Science,1,9.1
+training_sources,LinkedIn,36,16.1
+training_sources,Coursera,25,11.2
+training_sources,Unknown,21,9.4
+training_sources,SAFe by Scaled Agile Inc.,13,5.8
+training_sources,Coursera Course Certificates,12,5.4

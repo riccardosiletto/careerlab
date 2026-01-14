@@ -1,0 +1,29 @@
+category,name,count,percentage
+top_degrees,Biological Sciences,13,59.1
+top_degrees,Engineering,6,27.3
+top_degrees,Economics,5,22.7
+top_degrees,Computer Science,5,22.7
+top_degrees,Pharmacy,4,18.2
+top_degrees,Medicine,4,18.2
+top_degrees,Chemical Sciences,3,13.6
+top_degrees,Social Sciences,2,9.1
+top_degrees,Physics,1,4.5
+top_degrees,Languages,1,4.5
+top_degrees,Design,1,4.5
+top_degrees,Mathematics,1,4.5
+top_degrees,Education,1,4.5
+top_courses,Biotechnology,5,22.7
+top_courses,Unknown,3,13.6
+top_courses,Medical Biotechnology,2,9.1
+top_courses,Computer Science,2,9.1
+top_courses,Master's Degree in Computer Science,2,9.1
+training_sources,edX,2,18.2
+training_sources,IELTS BRITISHCOUNCIL,1,9.1
+training_sources,MARIZA YOGA ,1,9.1
+training_sources,Unknown,1,9.1
+training_sources,Cambridge University Press & Assessment English,1,9.1
+training_sources,Databricks,1,9.1
+training_sources,FEDERATION OF EUROPEAN LABORATORY ANIMAL SCIENCE ASSOCIATIONS,1,9.1
+training_sources,Mischief Makers B.V.,1,9.1
+training_sources,ICDL Europe,1,9.1
+training_sources,EF,1,9.1

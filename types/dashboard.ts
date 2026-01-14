@@ -4,6 +4,7 @@ export interface DashboardData {
   metadata: DashboardMetadata;
   demographics: Demographics;
   education: Education;
+  skills: Skills;
   career: Career;
 }
 
@@ -81,6 +82,32 @@ export interface Education {
   }>;
 }
 
+export interface Skills {
+  topSkills: Array<{
+    name: string;
+    count: number;
+    percentage: number;
+  }>;
+  topCertifications: Array<{
+    name: string;
+    count: number;
+    percentage: number;
+  }>;
+  trainingSources?: Array<{
+    name: string;
+    count: number;
+    percentage: number;
+  }>;
+}
+
+export interface CareerStep {
+  role: string;
+  seniority: 'intern' | 'junior' | 'mid' | 'senior' | 'lead' | 'director';
+  yearsToReach: number; // years from previous step
+  salaryRange: { min: number; max: number };
+  isCurrentStep?: boolean;
+}
+
 export interface Career {
   salaryRange: {
     min: number;
@@ -92,6 +119,7 @@ export interface Career {
     averageYears: number;
     description: string;
   };
+  careerPath?: CareerStep[];
   workSetup: {
     onSite: number;
     hybrid: number;
@@ -125,4 +153,14 @@ export interface Career {
     newCompanySameRole: number;
     newCompanyDiffRole: number;
   };
+  newCompanyDestinations?: Array<{
+    name: string;
+    count: number;
+    percentage: number;
+  }>;
+  differentRoles?: Array<{
+    name: string;
+    count: number;
+    percentage: number;
+  }>;
 }

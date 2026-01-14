@@ -1,0 +1,13 @@
+{
+  "role": "Project Manager",
+  "company": {
+    "name": "Deloitte",
+    "location": "London, United Kingdom",
+    "logo": "/company icons/deloitte.png"
+  },
+  "country": "United Kingdom",
+  "dataQuality": 91,
+  "lastUpdate": "2025-01-12",
+  "roleDescription": "Il Project Manager in consulenza guida progetti complessi per clienti di diversi settori. Coordina team, gestisce budget e timeline, e assicura il raggiungimento degli obiettivi di business definiti con il cliente.",
+  "profilesAnalyzed": 157
+}

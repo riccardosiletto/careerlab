@@ -1,0 +1,24 @@
+metric,value,additional,value2
+salaryMin,45000,,
+salaryMedian,75000,,
+salaryP75,95000,,
+salaryMax,120000,,
+promotionAvgYears,2.2,,
+promotionDescription,Tempo medio per promozione per un Researcher in Roche,,
+promotionLocation,Same Company,2,
+promotionLocation,New Company,18,
+promotionType,Same Role,12,
+promotionType,Different Role,8,
+promotionMatrix,Same Co. Same Role,1,
+promotionMatrix,Same Co. Diff Role,1,
+promotionMatrix,New Co. Same Role,11,
+promotionMatrix,New Co. Diff Role,7,
+newCompanyDestination,Novartis,5,27.8
+newCompanyDestination,Pfizer,4,22.2
+newCompanyDestination,Johnson & Johnson,3,16.7
+newCompanyDestination,AstraZeneca,3,16.7
+newCompanyDestination,Sanofi,3,16.7
+differentRole,Senior Researcher,4,50.0
+differentRole,Principal Scientist,2,25.0
+differentRole,Research Director,1,12.5
+differentRole,Lab Manager,1,12.5

@@ -14,7 +14,7 @@ export default function SalaryRangeChart({ salaryRange, currency = '€' }: Sala
   const { min, median, p75, max } = salaryRange;
 
   const formatSalary = (value: number) => {
-    return `${currency}${value.toLocaleString()}`;
+    return `${currency}${value.toLocaleString('it-IT')}`;
   };
 
   // Percentile data with calculated positions and ranges

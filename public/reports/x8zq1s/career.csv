@@ -1,0 +1,25 @@
+metric,value,additional,value2
+salaryMin,32000,,
+salaryMedian,48000,,
+salaryP75,62000,,
+salaryMax,80000,,
+promotionAvgYears,2.74,,
+promotionDescription,Tempo medio per promozione per un Project Manager in Deloitte,,
+promotionLocation,Same Company,66,
+promotionLocation,New Company,85,
+promotionType,Same Role,95,
+promotionType,Different Role,56,
+promotionMatrix,Same Co. Same Role,42,
+promotionMatrix,Same Co. Diff Role,24,
+promotionMatrix,New Co. Same Role,53,
+promotionMatrix,New Co. Diff Role,32,
+newCompanyDestination,PwC,22,25.9
+newCompanyDestination,KPMG,18,21.2
+newCompanyDestination,EY,15,17.6
+newCompanyDestination,Accenture,12,14.1
+newCompanyDestination,McKinsey & Company,10,11.8
+differentRole,Senior Manager,18,32.1
+differentRole,Director,12,21.4
+differentRole,Program Manager,10,17.9
+differentRole,Associate Director,9,16.1
+differentRole,Partner,7,12.5

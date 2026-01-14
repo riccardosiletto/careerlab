@@ -88,17 +88,14 @@ export default function HorizontalBarCard({
                       {item.name}
                     </p>
                     <p className="font-normal text-xs text-[#8D96AC]">
-                      {item.percentage}% del totale
+                      {item.count} profili
                     </p>
                   </div>
 
-                  {/* Count badge */}
-                  <div className="flex items-center gap-2">
+                  {/* Percentage badge */}
+                  <div className="flex items-center">
                     <span className="font-semibold text-xl text-[#212746]">
-                      {item.count}
-                    </span>
-                    <span className="font-normal text-[10px] text-[#8D96AC] uppercase">
-                      Profiles
+                      {item.percentage}%
                     </span>
                   </div>
                 </div>

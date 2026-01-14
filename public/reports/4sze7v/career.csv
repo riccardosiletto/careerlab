@@ -1,0 +1,20 @@
+metric,value,additional,value2
+salaryMin,35000,,
+salaryMedian,55000,,
+salaryP75,70000,,
+salaryMax,85000,,
+promotionAvgYears,5.11,,
+promotionDescription,Tempo medio per promozione per un Underwriter in AXA France,,
+promotionLocation,Same Company,6,
+promotionLocation,New Company,4,
+promotionType,Same Role,7,
+promotionType,Different Role,3,
+promotionMatrix,Same Co. Same Role,4,
+promotionMatrix,Same Co. Diff Role,2,
+promotionMatrix,New Co. Same Role,3,
+promotionMatrix,New Co. Diff Role,1,
+newCompanyDestination,Allianz,2,50.0
+newCompanyDestination,Generali,1,25.0
+newCompanyDestination,Swiss Re,1,25.0
+differentRole,Senior Underwriter,2,66.7
+differentRole,Risk Manager,1,33.3

@@ -1,0 +1,13 @@
+{
+  "role": "Researcher",
+  "company": {
+    "name": "Roche",
+    "location": "Basel, Switzerland",
+    "logo": "/company icons/roche.png"
+  },
+  "country": "Switzerland",
+  "dataQuality": 82,
+  "lastUpdate": "2025-01-12",
+  "roleDescription": "Il Researcher in ambito farmaceutico conduce ricerche scientifiche per sviluppare nuovi farmaci e terapie. Lavora in laboratorio, analizza dati sperimentali e collabora con team multidisciplinari per innovare nel campo della salute.",
+  "profilesAnalyzed": 22
+}

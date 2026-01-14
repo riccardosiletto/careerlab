@@ -1,17 +1,27 @@
-metric,value,additional
-salaryMin,28000,
-salaryMedian,35000,
-salaryP75,45000,
-salaryMax,60000,
-promotionTimeline,<1 year,23
-promotionTimeline,1-2 years,112
-promotionTimeline,2-3 years,89
-promotionTimeline,3+ years,28
-promotionLocation,Same Company,189
-promotionLocation,New Company,126
-promotionType,Same Role,205
-promotionType,Different Role,110
-promotionMatrix,Same Co. Same Role,126
-promotionMatrix,Same Co. Diff Role,63
-promotionMatrix,New Co. Same Role,79
-promotionMatrix,New Co. Diff Role,47
+metric,value,additional,value2
+salaryMin,28000,,
+salaryMedian,35000,,
+salaryP75,45000,,
+salaryMax,60000,,
+promotionTimeline,<1 year,23,
+promotionTimeline,1-2 years,112,
+promotionTimeline,2-3 years,89,
+promotionTimeline,3+ years,28,
+promotionLocation,Same Company,189,
+promotionLocation,New Company,126,
+promotionType,Same Role,205,
+promotionType,Different Role,110,
+promotionMatrix,Same Co. Same Role,126,
+promotionMatrix,Same Co. Diff Role,63,
+promotionMatrix,New Co. Same Role,79,
+promotionMatrix,New Co. Diff Role,47,
+newCompanyDestination,UniCredit,28,22.2
+newCompanyDestination,Generali,24,19.0
+newCompanyDestination,Banco BPM,18,14.3
+newCompanyDestination,Mediobanca,15,11.9
+newCompanyDestination,BPER Banca,12,9.5
+differentRole,Senior Project Manager,35,31.8
+differentRole,Program Manager,28,25.5
+differentRole,Product Owner,22,20.0
+differentRole,Business Analyst,15,13.6
+differentRole,Delivery Manager,10,9.1

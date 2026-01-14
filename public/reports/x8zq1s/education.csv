@@ -1,0 +1,38 @@
+category,name,count,percentage
+top_degrees,Economics,58,43
+top_degrees,Social Sciences,25,18.5
+top_degrees,Education,23,17
+top_degrees,Engineering,19,14.1
+top_degrees,Computer Science,17,12.6
+top_degrees,Communication,15,11.1
+top_degrees,Literature,8,5.9
+top_degrees,"Disciplines of Arts, Music and Entertainment",7,5.2
+top_degrees,Languages,7,5.2
+top_degrees,Law,6,4.4
+top_degrees,Biological Sciences,5,3.7
+top_degrees,Tourism Sciences,5,3.7
+top_degrees,Design,4,3
+top_degrees,Philosophy,4,3
+top_degrees,Political Science,3,2.2
+top_degrees,Medicine,2,1.5
+top_degrees,Cultural Heritage,2,1.5
+top_degrees,Chemical Sciences,2,1.5
+top_degrees,Sports Science,2,1.5
+top_degrees,Mathematics,1,0.7
+top_degrees,Statistical Sciences,1,0.7
+top_degrees,Psychology,1,0.7
+top_courses,GCSE,6,4.4
+top_courses,Marketing,5,3.7
+top_courses,A Levels,5,3.7
+top_courses,Unknown,4,3
+top_courses,Philosophy,3,2.2
+training_sources,Association for Project Management,21,25.9
+training_sources,PeopleCert,19,23.5
+training_sources,AXELOS Global Best Practice,18,22.2
+training_sources,"BCS, The Chartered Institute for IT",11,13.6
+training_sources,APMG International,10,12.3
+training_sources,LinkedIn,8,9.9
+training_sources,Scrum Alliance,7,8.6
+training_sources,The Knowledge Academy,7,8.6
+training_sources,SAP,4,4.9
+training_sources,Deloitte,4,4.9

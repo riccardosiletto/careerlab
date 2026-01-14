@@ -9,9 +9,9 @@ interface GenderDonutChartProps {
 
 // SOLID COLORS - NO GRADIENTS
 const COLORS = {
-  Male: '#6D7BFC',
-  Female: '#B6DC00',
-  Other: '#8D96AC',
+  Uomini: '#6D7BFC',
+  Donne: '#B6DC00',
+  Altro: '#8D96AC',
 };
 
 // Male icon component
@@ -33,8 +33,8 @@ const FemaleIcon = ({ className }: { className?: string }) => (
 export default function GenderDonutChart({ data }: GenderDonutChartProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  // Filter to only show Male and Female
-  const filteredData = data.filter(item => item.type === 'Male' || item.type === 'Female');
+  // Filter to only show Uomini and Donne
+  const filteredData = data.filter(item => item.type === 'Uomini' || item.type === 'Donne');
   const total = filteredData.reduce((sum, item) => sum + item.count, 0);
 
   const onPieEnter = (_: any, index: number) => {
@@ -111,7 +111,7 @@ export default function GenderDonutChart({ data }: GenderDonutChartProps) {
           {/* Icons overlay */}
           {filteredData.map((entry, index) => {
             const pos = getIconPosition(index);
-            const Icon = entry.type === 'Male' ? MaleIcon : FemaleIcon;
+            const Icon = entry.type === 'Uomini' ? MaleIcon : FemaleIcon;
             return (
               <div
                 key={`icon-${index}`}
@@ -132,7 +132,7 @@ export default function GenderDonutChart({ data }: GenderDonutChartProps) {
         {/* Legend - CLEAN */}
         <div className="flex-1 flex flex-col gap-6 justify-center">
           {filteredData.map((entry, index) => {
-            const Icon = entry.type === 'Male' ? MaleIcon : FemaleIcon;
+            const Icon = entry.type === 'Uomini' ? MaleIcon : FemaleIcon;
             return (
               <div
                 key={entry.type}
@@ -164,7 +164,7 @@ export default function GenderDonutChart({ data }: GenderDonutChartProps) {
                       color: activeIndex === index ? COLORS[entry.type as keyof typeof COLORS] : '#212746',
                     }}
                   >
-                    {entry.type === 'Male' ? 'Uomini' : 'Donne'}
+                    {entry.type}
                   </span>
                   <div className="flex items-baseline gap-2">
                     <span

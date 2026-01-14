@@ -1,4 +1,4 @@
-import { Demographics, Education, Career } from '@/types/dashboard';
+import { Demographics, Education, Career, Skills } from '@/types/dashboard';
 
 interface CSVRow {
   [key: string]: string;
@@ -116,22 +116,23 @@ export function parseDemographicsCSV(rows: CSVRow[]): Demographics {
 }
 
 export function parseEducationCSV(rows: CSVRow[]): Education {
+  // Support both old format (category: degree/course) and new format (category: top_degrees/top_courses)
   const topDegrees = rows
-    .filter(r => r.category === 'degree')
+    .filter(r => r.category === 'degree' || r.category === 'top_degrees')
     .slice(0, 5)
     .map(r => ({
       name: r.name,
       count: parseInt(r.count),
-      percentage: parseInt(r.percentage),
+      percentage: parseFloat(r.percentage) || 0,
     }));
 
   const topCourses = rows
-    .filter(r => r.category === 'course')
+    .filter(r => r.category === 'course' || r.category === 'top_courses')
     .slice(0, 5)
     .map(r => ({
       name: r.name,
       count: parseInt(r.count),
-      percentage: parseInt(r.percentage),
+      percentage: parseFloat(r.percentage) || 0,
     }));
 
   const schoolTypes = rows
@@ -139,7 +140,7 @@ export function parseEducationCSV(rows: CSVRow[]): Education {
     .map(r => ({
       type: r.name,
       count: parseInt(r.count),
-      percentage: parseInt(r.percentage),
+      percentage: parseFloat(r.percentage) || 0,
     }));
 
   const mbaTypes = rows
@@ -147,7 +148,7 @@ export function parseEducationCSV(rows: CSVRow[]): Education {
     .map(r => ({
       type: r.name,
       count: parseInt(r.count),
-      percentage: parseInt(r.percentage),
+      percentage: parseFloat(r.percentage) || 0,
     }));
 
   return {
@@ -155,6 +156,41 @@ export function parseEducationCSV(rows: CSVRow[]): Education {
     topCourses,
     schoolTypes,
     mbaTypes,
+  };
+}
+
+export function parseSkillsCSV(rows: CSVRow[]): Skills {
+  const topSkills = rows
+    .filter(r => r.category === 'top_skills')
+    .slice(0, 5)
+    .map(r => ({
+      name: r.name,
+      count: parseInt(r.count),
+      percentage: parseFloat(r.percentage) || 0,
+    }));
+
+  const topCertifications = rows
+    .filter(r => r.category === 'top_certifications')
+    .slice(0, 5)
+    .map(r => ({
+      name: r.name,
+      count: parseInt(r.count),
+      percentage: parseFloat(r.percentage) || 0,
+    }));
+
+  const trainingSources = rows
+    .filter(r => r.category === 'training_sources')
+    .slice(0, 5)
+    .map(r => ({
+      name: r.name,
+      count: parseInt(r.count),
+      percentage: parseFloat(r.percentage) || 0,
+    }));
+
+  return {
+    topSkills,
+    topCertifications,
+    trainingSources: trainingSources.length > 0 ? trainingSources : undefined,
   };
 }
 
@@ -218,6 +254,22 @@ export function parseCareerCSV(rows: CSVRow[]): Career {
     newCompanyDiffRole: parseInt(rows.find(r => r.metric === 'promotionMatrix' && r.value === 'New Co. Diff Role')?.additional || '0'),
   };
 
+  const newCompanyDestinations = rows
+    .filter(r => r.metric === 'newCompanyDestination')
+    .map(r => ({
+      name: r.value,
+      count: parseInt(r.additional),
+      percentage: parseFloat(r.value2 || '0'),
+    }));
+
+  const differentRoles = rows
+    .filter(r => r.metric === 'differentRole')
+    .map(r => ({
+      name: r.value,
+      count: parseInt(r.additional),
+      percentage: parseFloat(r.value2 || '0'),
+    }));
+
   return {
     salaryRange,
     promotionTimeline,
@@ -228,5 +280,7 @@ export function parseCareerCSV(rows: CSVRow[]): Career {
     promotionLocation,
     promotionType,
     promotionMatrix,
+    newCompanyDestinations: newCompanyDestinations.length > 0 ? newCompanyDestinations : undefined,
+    differentRoles: differentRoles.length > 0 ? differentRoles : undefined,
   };
 }

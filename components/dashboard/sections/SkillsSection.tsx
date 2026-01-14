@@ -41,6 +41,19 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
           />
         </div>
       </div>
+
+      {/* Training Sources row */}
+      {skills.trainingSources && skills.trainingSources.length > 0 && (
+        <div className="grid grid-cols-2 gap-6">
+          <div id="training-sources">
+            <HorizontalBarCard
+              title="Quali sono le top 5 sorgenti di formazione?"
+              data={skills.trainingSources}
+              baseColor="#9D52FF"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

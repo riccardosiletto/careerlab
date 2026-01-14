@@ -7,6 +7,7 @@ import NavigationSidebar from '@/components/dashboard/NavigationSidebar';
 import InfoCards from '@/components/dashboard/InfoCards';
 import DemographicsSection from '@/components/dashboard/sections/DemographicsSection';
 import EducationSection from '@/components/dashboard/sections/EducationSection';
+import SkillsSection from '@/components/dashboard/sections/SkillsSection';
 import CareerSection from '@/components/dashboard/sections/CareerSection';
 import PremiumBanner from '@/components/dashboard/PremiumBanner';
 
@@ -113,7 +114,10 @@ export default function DynamicDashboardPage() {
             <EducationSection education={data.education} />
 
             {/* Career Section */}
-            <CareerSection career={data.career} role={data.metadata.role} />
+            <CareerSection career={data.career} role={data.metadata.role} companyName={data.metadata.company.name} companyLogo={data.metadata.company.logo} />
+
+            {/* Skills Section */}
+            {data.skills && <SkillsSection skills={data.skills} />}
 
             {/* Premium Banner */}
             <PremiumBanner />

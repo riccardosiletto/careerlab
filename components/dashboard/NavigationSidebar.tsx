@@ -11,7 +11,7 @@ interface NavigationSidebarProps {
 
 export default function NavigationSidebar({ role, roleDescription }: NavigationSidebarProps) {
   const [activeSection, setActiveSection] = useState<string>('');
-  const [accordionValue, setAccordionValue] = useState<string[]>(["demographics", "education", "career"]);
+  const [accordionValue, setAccordionValue] = useState<string[]>(["demographics", "education", "career", "skills"]);
 
   const scrollToElement = (id: string) => {
     const element = document.getElementById(id);
@@ -27,7 +27,7 @@ export default function NavigationSidebar({ role, roleDescription }: NavigationS
       setAccordionValue([]);
     } else {
       // Reopen accordions when card collapses
-      setAccordionValue(["demographics", "education", "career"]);
+      setAccordionValue(["demographics", "education", "career", "skills"]);
     }
   };
 
@@ -52,34 +52,27 @@ export default function NavigationSidebar({ role, roleDescription }: NavigationS
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            <div className="flex flex-col gap-1 pl-7">
+            <div className="flex flex-col gap-0 pl-7">
               <button
                 onClick={() => scrollToElement('age-distribution')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'age-distribution' ? 'text-[#9FA9FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'age-distribution' ? 'text-[#9FA9FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
                   }`}
               >
                 Distribuzione dell'Età
               </button>
               <button
-                onClick={() => scrollToElement('education-level')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'education-level' ? 'text-[#9FA9FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
-                  }`}
-              >
-                Livello di Formazione
-              </button>
-              <button
-                onClick={() => scrollToElement('gender-distribution')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'gender-distribution' ? 'text-[#9FA9FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
-                  }`}
-              >
-                Distribuzione di Genere
-              </button>
-              <button
                 onClick={() => scrollToElement('gender-trend')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'gender-trend' ? 'text-[#9FA9FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'gender-trend' ? 'text-[#9FA9FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
                   }`}
               >
-                Trend di Genere
+                Gender Balance nel Tempo
+              </button>
+              <button
+                onClick={() => scrollToElement('study-location')}
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'study-location' ? 'text-[#9FA9FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                  }`}
+              >
+                Dove hanno studiato
               </button>
             </div>
           </AccordionContent>
@@ -98,31 +91,31 @@ export default function NavigationSidebar({ role, roleDescription }: NavigationS
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            <div className="flex flex-col gap-1 pl-7">
+            <div className="flex flex-col gap-0 pl-7">
               <button
                 onClick={() => scrollToElement('top-degrees')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'top-degrees' ? 'text-[#EBFF8C] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'top-degrees' ? 'text-[#EBFF8C] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
                   }`}
               >
                 Top 5 Lauree
               </button>
               <button
                 onClick={() => scrollToElement('top-courses')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'top-courses' ? 'text-[#EBFF8C] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'top-courses' ? 'text-[#EBFF8C] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
                   }`}
               >
                 Top 5 Corsi
               </button>
               <button
                 onClick={() => scrollToElement('school-types')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'school-types' ? 'text-[#EBFF8C] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'school-types' ? 'text-[#EBFF8C] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
                   }`}
               >
                 Tipi di Scuola
               </button>
               <button
                 onClick={() => scrollToElement('mba-types')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'mba-types' ? 'text-[#EBFF8C] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'mba-types' ? 'text-[#EBFF8C] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
                   }`}
               >
                 Distribuzione MBA
@@ -144,34 +137,64 @@ export default function NavigationSidebar({ role, roleDescription }: NavigationS
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            <div className="flex flex-col gap-1 pl-7">
+            <div className="flex flex-col gap-0 pl-7">
               <button
                 onClick={() => scrollToElement('salary-range')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'salary-range' ? 'text-[#C299FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'salary-range' ? 'text-[#C299FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
                   }`}
               >
                 Range Salariale
               </button>
               <button
                 onClick={() => scrollToElement('promotion-timeline')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'promotion-timeline' ? 'text-[#C299FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'promotion-timeline' ? 'text-[#C299FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
                   }`}
               >
                 Timeline Promozioni
               </button>
               <button
                 onClick={() => scrollToElement('promotion-location')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'promotion-location' ? 'text-[#C299FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'promotion-location' ? 'text-[#C299FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
                   }`}
               >
                 Località Promozione
               </button>
               <button
                 onClick={() => scrollToElement('promotion-type')}
-                className={`text-left text-sm py-2 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'promotion-type' ? 'text-[#C299FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'promotion-type' ? 'text-[#C299FF] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
                   }`}
               >
                 Tipo di Promozione
+              </button>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Skills Section */}
+        <AccordionItem value="skills" className="border-b border-[#3A4066]">
+          <AccordionTrigger className="text-white hover:text-[#FF8A8A]">
+            <div className="flex items-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span>SKILLS</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent>
+            <div className="flex flex-col gap-0 pl-7">
+              <button
+                onClick={() => scrollToElement('top-skills')}
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'top-skills' ? 'text-[#FF8A8A] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                  }`}
+              >
+                Top 5 Skills
+              </button>
+              <button
+                onClick={() => scrollToElement('top-certifications')}
+                className={`text-left text-sm py-1 px-3 rounded hover:bg-[#2F354E] transition-colors ${activeSection === 'top-certifications' ? 'text-[#FF8A8A] font-medium bg-[#2F354E]' : 'text-[#ADB3C7]'
+                  }`}
+              >
+                Top Certificazioni
               </button>
             </div>
           </AccordionContent>

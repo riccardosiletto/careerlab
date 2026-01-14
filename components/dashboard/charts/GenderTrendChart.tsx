@@ -52,29 +52,28 @@ export default function GenderTrendChart({ data }: GenderTrendChartProps) {
   return (
     <div className="bg-white flex flex-col h-full">
       {/* Dark blue header */}
-      <div className="bg-[#212746] flex items-center justify-between px-5 py-4 w-full rounded-none">
+      <div className="bg-[#212746] flex items-center px-5 py-4 w-full rounded-none">
         <h3 className="font-medium text-[19px] text-white">
           Come cambia il gender balance nel tempo?
         </h3>
-
-        {/* Legend */}
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#6D7BFC]" />
-            <span className="font-medium text-xs text-white/80">Uomini</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#B6DC00]" />
-            <span className="font-medium text-xs text-white/80">Donne</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#8D96AC]" />
-            <span className="font-medium text-xs text-white/80">Altro</span>
-          </div>
-        </div>
       </div>
 
       <div className="relative flex-1 min-h-[200px] p-4" style={{ animation: 'chartFadeIn 0.8s ease-out both' }}>
+        {/* Legend inside chart */}
+        <div className="absolute top-4 right-4 z-10 flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-[#6D7BFC]" />
+            <span className="font-medium text-xs text-[#5A607F]">Uomini</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-[#B6DC00]" />
+            <span className="font-medium text-xs text-[#5A607F]">Donne</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-[#8D96AC]" />
+            <span className="font-medium text-xs text-[#5A607F]">Altro</span>
+          </div>
+        </div>
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={dataWithPercentages}

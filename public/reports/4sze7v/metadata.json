@@ -1,0 +1,13 @@
+{
+  "role": "Underwriter",
+  "company": {
+    "name": "AXA France",
+    "location": "Paris, France",
+    "logo": "/company icons/axa.png"
+  },
+  "country": "France",
+  "dataQuality": 78,
+  "lastUpdate": "2025-01-12",
+  "roleDescription": "L'Underwriter valuta i rischi assicurativi e determina i termini delle polizze. Analizza le richieste di copertura, calcola i premi e decide se accettare o rifiutare le proposte in base ai criteri aziendali.",
+  "profilesAnalyzed": 10
+}

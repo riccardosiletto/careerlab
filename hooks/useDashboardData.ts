@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import { DashboardData } from '@/types/dashboard';
-import { parseDemographicsCSV, parseEducationCSV, parseCareerCSV } from '@/lib/csvParser';
+import { parseDemographicsCSV, parseEducationCSV, parseSkillsCSV, parseCareerCSV } from '@/lib/csvParser';
 
 export function useDashboardData(id: string) {
   const [data, setData] = useState<DashboardData | null>(null);
@@ -27,14 +27,15 @@ export function useDashboardData(id: string) {
 
         // Load and parse CSVs in parallel
         console.log('[useDashboardData] Loading CSVs...');
-        const [demographics, education, career] = await Promise.all([
+        const [demographics, education, skills, career] = await Promise.all([
           loadAndParseCSV(`/reports/${id}/demographics.csv`, 'demographics'),
           loadAndParseCSV(`/reports/${id}/education.csv`, 'education'),
+          loadAndParseCSV(`/reports/${id}/skills.csv`, 'skills').catch(() => null), // Skills is optional
           loadAndParseCSV(`/reports/${id}/career.csv`, 'career'),
         ]);
 
         console.log('[useDashboardData] All data loaded successfully');
-        setData({ metadata, demographics, education, career });
+        setData({ metadata, demographics, education, skills, career });
       } catch (err) {
         console.error('[useDashboardData] Error loading dashboard data:', err);
         setError(err instanceof Error ? err.message : 'Failed to load dashboard');
@@ -52,7 +53,7 @@ export function useDashboardData(id: string) {
   return { data, loading, error };
 }
 
-async function loadAndParseCSV(url: string, type: 'demographics' | 'education' | 'career'): Promise<any> {
+async function loadAndParseCSV(url: string, type: 'demographics' | 'education' | 'skills' | 'career'): Promise<any> {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Failed to load ${type} data`);
@@ -73,6 +74,9 @@ async function loadAndParseCSV(url: string, type: 'demographics' | 'education' |
               break;
             case 'education':
               parsed = parseEducationCSV(results.data as any[]);
+              break;
+            case 'skills':
+              parsed = parseSkillsCSV(results.data as any[]);
               break;
             case 'career':
               parsed = parseCareerCSV(results.data as any[]);

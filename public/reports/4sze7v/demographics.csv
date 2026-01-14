@@ -1,0 +1,21 @@
+category,key,value,percentage
+age_distribution,25-34,5.0,50
+age_distribution,35-44,1.0,10
+age_distribution,45-54,3.0,30
+age_distribution,55+,1.0,10
+average_age,avg_age,39.5,
+gender_trend,2021_female,2.0,50
+gender_trend,2021_male,2.0,50
+gender_trend,2022_female,3.0,60
+gender_trend,2022_male,2.0,40
+gender_trend,2023_female,4.0,66.7
+gender_trend,2023_male,2.0,33.3
+gender_trend,2024_female,3.0,60
+gender_trend,2024_male,2.0,40
+gender_trend,2025_female,7.0,63.6
+gender_trend,2025_male,4.0,36.4
+education_level,Other type of private or public education,9.0,90
+education_level,Post secondary trade or vocational school,8.0,80
+education_level,First degree university diploma,4.0,40
+education_level,Second degree university diploma,2.0,20
+education_level,PhD or doctorate,1.0,10
